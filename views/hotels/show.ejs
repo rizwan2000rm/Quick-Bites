@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- Mapbox -->
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+
+    <title>YelpCamp</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">YelpCamp</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li
+              class="nav-link <%= typeof page !== 'undefined' && page === 'hotels' ? 'active' : '' %>"
+            >
+              <a href="/hotels">Home</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <% if(!currentUser){ %>
+            <li
+              class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"
+            >
+              <a href="/login" class="nav-link">Login</a>
+            </li>
+            <li
+              class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"
+            >
+              <a href="/register" class="nav-link">Sign Up</a>
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+              <a href="#" class="nav-link"
+                >Signed In As <%= currentUser.username %></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link">Logout</a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <% if(success && success.length > 0){ %>
+    <div class="container">
+      <div class="alert alert-success">
+        <%= success %>
+      </div>
+    </div>
+    <% } %> <% if(error && error.length > 0){ %>
+    <div class="container">
+      <div class="alert alert-danger">
+        <%= error %>
+      </div>
+    </div>
+    <% } %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <!-- Mapbox -->
+          <div id="map"></div>
+          <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+          <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+          <script src="/js/map.js"></script>
+        </div>
+
+        <
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

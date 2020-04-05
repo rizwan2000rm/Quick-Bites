@@ -1,0 +1,35 @@
+<%- include ('../partials/header') %>
+
+<!-- Showcase + Overlay -->
+<section class="section-head">
+  <div class="overlay">
+    <div class="section-head-inner">
+      <h1>QuickBites</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit,
+        distinctio excepturi fuga, necessitatibus repellat quo mollitia dolorum
+        alias harum nobis tempora? Quidem quaerat adipisci, ullam impedit vitae
+        aspernatur quam sed.
+      </p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="/hotels/new">Add New hotel</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="basic-grid">
+  <% hotels.forEach(function(hotel){ %>
+  <div class="card">
+    <div class="card-img">
+      <img src="<%= hotel.image %>" />
+    </div>
+    <div class="card-body">
+      <h5><%= hotel.name %></h5>
+      <a href="/hotels/<%= hotel._id %>" class="btn">More Info</a>
+    </div>
+    <% }); %>
+  </div>
+</section>
+
+<%- include ('../partials/footer') %>
