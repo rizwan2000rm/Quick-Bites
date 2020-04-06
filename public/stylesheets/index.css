@@ -209,6 +209,57 @@ img {
 }
 
 /* Cards in /hotels */
+.card-container {
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--secondary-color);
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+  border: 2px solid var(--secondary-color);
+  transition: all 500ms;
+  overflow: hidden;
+}
+
+.card img {
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.section-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card h4 {
+  margin-bottom: 1rem;
+}
+
+.card .content {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.card .btn {
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 2px solid var(--primary-color);
+}
+
+.card .btn:hover {
+  background-color: #fff;
+  color: var(--secondary-color);
+}
 
 /* Footer */
 .footer {
@@ -314,6 +365,23 @@ img {
 
   .section-gallery .gallery a:first-child {
     display: none;
+  }
+
+  .card-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .card .content {
+    margin: 1rem 0;
+  }
+
+  .card h4 {
+    margin-bottom: 0.5rem;
+  }
+
+  .section-grid {
+    gap: 1rem;
   }
 
   .footer {

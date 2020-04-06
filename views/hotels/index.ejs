@@ -12,21 +12,21 @@
         aspernatur quam sed.
       </p>
       <p>
-        <a class="btn btn-primary btn-lg" href="/hotels/new">Add New hotel</a>
+        <a class="btn" href="/hotels/new">Add New hotel</a>
       </p>
     </div>
   </div>
 </section>
 
-<section class="basic-grid">
-  <% hotels.forEach(function(hotel){ %>
-  <div class="card">
-    <div class="card-img">
+<section class="card-container">
+  <div class="section-grid">
+    <% hotels.forEach(function(hotel){ %>
+    <div class="card">
       <img src="<%= hotel.image %>" />
-    </div>
-    <div class="card-body">
-      <h5><%= hotel.name %></h5>
-      <a href="/hotels/<%= hotel._id %>" class="btn">More Info</a>
+      <div class="content">
+        <h4><%= hotel.name %></h4>
+        <a href="/hotels/<%= hotel._id %>" class="btn">More Info</a>
+      </div>
     </div>
     <% }); %>
   </div>
