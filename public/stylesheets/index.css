@@ -96,6 +96,11 @@ main {
   color: #fff;
 }
 
+.nav-item .active {
+  filter: grayscale(0%) opacity(1);
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .link-text {
   display: none;
   margin-left: 1rem;
