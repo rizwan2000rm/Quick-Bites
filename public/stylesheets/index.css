@@ -188,7 +188,7 @@ main {
 /* Section Head */
 .section-head {
   z-index: 3;
-  background: url("https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
+  background: url("https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")
     no-repeat center center/cover;
   height: 600px;
 }
@@ -232,6 +232,11 @@ main {
   grid-gap: 3rem;
   align-items: center;
   justify-content: center;
+}
+
+.section-hotels .content {
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .section-hotels h1 {
@@ -325,10 +330,13 @@ main {
   height: 100%;
   width: 100%;
   border-radius: 4px;
-  /* border: 2px solid var(--secondary-color); */
   transition: all 500ms;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
 .card img {
@@ -362,6 +370,26 @@ main {
 .card .btn:hover {
   background-color: #fff;
   color: var(--secondary-color);
+}
+
+/* section-show */
+.section-show .show {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.show-details {
+  margin: 1rem;
+  text-align: center;
+}
+
+.section-show .pull-right {
+  text-align: end;
+  margin: 1rem;
+}
+
+.show-body {
+  margin: 1rem;
 }
 
 /* Footer */

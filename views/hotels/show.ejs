@@ -1,78 +1,50 @@
 <%- include ('../partials/header') %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <p class="lead">YelpCamp</p>
-      <div class="list-group">
-        <li class="list-group-item active">Info 1</li>
-        <li class="list-group-item">Info 2</li>
-        <li class="list-group-item">Info 3</li>
-      </div>
+<div class="section-show">
+  <div class="show">
+    <div class="show-details">
+      <h1><a><%=hotel.name%></a></h1>
+      <h2 class="pull-right">$9.00/night</h2>
+      <p><%= hotel.description %></p>
     </div>
-    <div class="col-md-9">
-      <div class="thumbnail">
+    <div>
+      <div class="show-body">
         <img class="img-responsive" src="<%= hotel.image %>" />
-        <div class="caption-full">
-          <h4 class="pull-right">$9.00/night</h4>
-          <h4><a><%=hotel.name%></a></h4>
-          <p><%= hotel.description %></p>
+        <p>
+          <em>Submitted By <%= hotel.author.username %></em>
+        </p>
+        <% if(currentUser && hotel.author.id.equals(currentUser._id)){ %>
+        <a class="btn" href="/hotels/<%= hotel._id %>/edit">Edit</a>
+        <form id="delete-form" action="/hotels/<%= hotel._id %>?_method=DELETE" method="POST">
+          <button class="btn">Delete</button>
+        </form>
+        <% }%>
+      </div>
+
+      <div class="pull-right">
+        <a class="btn" href="/hotels/<%= hotel._id %>/comments/new">Add New Comment</a>
+      </div>
+
+      <hr />
+
+      <% hotel.comments.forEach(function(comment){ %>
+      <div class="row">
+        <div class="col-md-12">
+          <strong><%= comment.author.username %></strong>
+          <span class="pull-right">10 days ago</span>
           <p>
-            <em>Submitted By <%= hotel.author.username %></em>
+            <%= comment.text %>
           </p>
-          <% if(currentUser && hotel.author.id.equals(currentUser._id)){ %>
-          <a class="btn btn-xs btn-warning" href="/hotels/<%= hotel._id %>/edit"
-            >Edit</a
-          >
-          <form
-            id="delete-form"
-            action="/hotels/<%= hotel._id %>?_method=DELETE"
-            method="POST"
-          >
-            <button class="btn btn-xs btn-danger">Delete</button>
+          <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+          <a class="btn btn-xs btn-warning" href="/hotels/<%=hotel._id %>/comments/<%=comment._id %>/edit">Edit</a>
+          <form id="delete-form" action="/hotels/<%=hotel._id %>/comments/<%=comment._id %>?_method=DELETE"
+            method="POST">
+            <input type="submit" class="btn btn-xs btn-danger" value="Delete" />
           </form>
-          <% }%>
+          <% } %>
         </div>
       </div>
-      <div class="well">
-        <div class="text-right">
-          <a
-            class="btn btn-success"
-            href="/hotels/<%= hotel._id %>/comments/new"
-            >Add New Comment</a
-          >
-        </div>
-        <hr />
-        <% hotel.comments.forEach(function(comment){ %>
-        <div class="row">
-          <div class="col-md-12">
-            <strong><%= comment.author.username %></strong>
-            <span class="pull-right">10 days ago</span>
-            <p>
-              <%= comment.text %>
-            </p>
-            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-            <a
-              class="btn btn-xs btn-warning"
-              href="/hotels/<%=hotel._id %>/comments/<%=comment._id %>/edit"
-              >Edit</a
-            >
-            <form
-              id="delete-form"
-              action="/hotels/<%=hotel._id %>/comments/<%=comment._id %>?_method=DELETE"
-              method="POST"
-            >
-              <input
-                type="submit"
-                class="btn btn-xs btn-danger"
-                value="Delete"
-              />
-            </form>
-            <% } %>
-          </div>
-        </div>
-        <% }) %>
-      </div>
+      <% }) %>
     </div>
   </div>
 </div>
