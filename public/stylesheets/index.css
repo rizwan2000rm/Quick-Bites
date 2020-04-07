@@ -274,15 +274,13 @@ main {
 /*  Forms   */
 .section-form {
   display: flex;
-  height: 80vh;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 .section-form .form {
-  padding: 3rem;
-  border-radius: 15px;
+  padding: 1rem;
 }
 
 .section-form .form .hr-style {
@@ -308,6 +306,7 @@ main {
   line-height: 3rem;
   border: 2px solid var(--secondary-color);
   font-size: 1rem;
+  padding: 0 1rem;
 }
 
 .section-form .form .btn {
@@ -341,6 +340,7 @@ main {
 
 .card img {
   border-bottom: 2px solid var(--secondary-color);
+  max-height: 400px;
 }
 
 .section-grid {
@@ -380,7 +380,6 @@ main {
 
 .show-details {
   margin: 1rem;
-  text-align: center;
 }
 
 .section-show .pull-right {
@@ -390,6 +389,48 @@ main {
 
 .show-body {
   margin: 1rem;
+}
+
+.show-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.comments {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1000px) {
+  .section-show .show {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .show-details {
+    margin: 0.5rem;
+  }
+
+  .section-show .pull-right {
+    text-align: end;
+    margin: 0.5rem;
+  }
+
+  .show-body {
+    margin: 0.5rem;
+  }
+
+  .comments {
+    margin: 1rem;
+    padding: 0.5rem;
+  }
 }
 
 /* Footer */
@@ -444,9 +485,23 @@ main {
   cursor: pointer;
   font-size: 1.1rem;
   border-radius: 30px;
+  margin: 0.5rem;
 }
 
-.btn:hover {
+.btn-small {
+  /* TODO - learn  */
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 30px;
+}
+
+.btn:hover,
+.btn-small:hover {
   background-color: var(--secondary-color);
 }
 
@@ -517,6 +572,7 @@ main {
 
   .footer {
     padding: 2rem 0;
+    margin-bottom: 5rem;
   }
 
   .footer .container {
@@ -533,5 +589,15 @@ main {
 
   .footer h3 {
     font-size: 1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .btn-small {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
   }
 }

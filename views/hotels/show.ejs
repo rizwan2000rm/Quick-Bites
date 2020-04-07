@@ -14,37 +14,41 @@
           <em>Submitted By <%= hotel.author.username %></em>
         </p>
         <% if(currentUser && hotel.author.id.equals(currentUser._id)){ %>
-        <a class="btn" href="/hotels/<%= hotel._id %>/edit">Edit</a>
-        <form id="delete-form" action="/hotels/<%= hotel._id %>?_method=DELETE" method="POST">
-          <button class="btn">Delete</button>
-        </form>
+        <div class="show-buttons">
+          <a class="btn" href="/hotels/<%= hotel._id %>/edit">Edit</a>
+          <form id="delete-form" action="/hotels/<%= hotel._id %>?_method=DELETE" method="POST">
+            <button class="btn">Delete</button>
+          </form>
+        </div>
         <% }%>
       </div>
 
-      <div class="pull-right">
-        <a class="btn" href="/hotels/<%= hotel._id %>/comments/new">Add New Comment</a>
+      <div>
+        <a class="btn" href="/hotels/<%= hotel._id %>/comments/new">Add Review</a>
       </div>
 
       <hr />
 
-      <% hotel.comments.forEach(function(comment){ %>
-      <div class="row">
-        <div class="col-md-12">
+      <div class="comments">
+        <% hotel.comments.forEach(function(comment){ %>
+        <div class="comment-details">
           <strong><%= comment.author.username %></strong>
-          <span class="pull-right">10 days ago</span>
           <p>
             <%= comment.text %>
           </p>
-          <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-          <a class="btn btn-xs btn-warning" href="/hotels/<%=hotel._id %>/comments/<%=comment._id %>/edit">Edit</a>
+        </div>
+        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+        <div class="comment">
+          <a class="btn-small" href="/hotels/<%=hotel._id %>/comments/<%=comment._id %>/edit">Edit</a>
           <form id="delete-form" action="/hotels/<%=hotel._id %>/comments/<%=comment._id %>?_method=DELETE"
             method="POST">
-            <input type="submit" class="btn btn-xs btn-danger" value="Delete" />
+            <input type="submit" class="btn-small" value="Delete" />
           </form>
-          <% } %>
         </div>
+        <% } %>
+        <% }) %>
       </div>
-      <% }) %>
+
     </div>
   </div>
 </div>
