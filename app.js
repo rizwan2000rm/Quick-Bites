@@ -71,6 +71,6 @@ app.use("/hotels", hotelRoutes);
 app.use("/hotels/:id/comments", commentRoutes);
 app.use(authRoutes);
 
-app.listen(process.env.PORT, (req, res) => {
+app.listen(process.env.PORT, process.env.IP, (req, res) => {
   console.log("The QuickBites Server is Running.....");
 });
