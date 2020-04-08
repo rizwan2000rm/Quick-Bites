@@ -192,7 +192,7 @@ main {
   padding: 0.5rem;
   line-height: 1.5;
   font-size: 1.2rem;
-  margin: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .alert-success {
