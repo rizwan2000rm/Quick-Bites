@@ -1,6 +1,6 @@
 ## Quick-Bites
 
-A Full Stack Web App made with Node.js Express MongoDB
+A Full Stack Web App made with Node.js, Express, MongoDB.
 
 Features:
 1) User Authentication
