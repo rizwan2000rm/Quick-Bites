@@ -1,6 +1,7 @@
 ## Quick-Bites
 
-A Full Stack Web App made with Node.js, Express, MongoDB.
+Built web app for local restaurants, café and dessert shops to give them an online presence.
+Implemented User Authentication, Authorization, RESTful CRUD functionality, Database and Responsive Layout.
 
 Features:
 1) User Authentication
