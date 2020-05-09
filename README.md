@@ -1,7 +1,7 @@
 ## Quick-Bites
 
-Built web app for local restaurants, café and dessert shops to give them an online presence.
-Implemented User Authentication, Authorization, RESTful CRUD functionality, Database and Responsive Layout.
+1) Built web app for local restaurants, café and dessert shops to give them an online presence.
+2) Implemented User Authentication, Authorization, RESTful CRUD functionality, Database and Responsive Layout.
 
 Features:
 1) User Authentication
